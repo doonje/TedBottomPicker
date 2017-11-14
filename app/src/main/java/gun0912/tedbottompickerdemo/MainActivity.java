@@ -180,8 +180,6 @@ public class MainActivity extends AppCompatActivity {
             mSelectedImagesContainer.addView(imageHolder);
 
             thumbnail.setLayoutParams(new FrameLayout.LayoutParams(wdpx, htpx));
-
-
         }
 
     }
