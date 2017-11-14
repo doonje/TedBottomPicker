@@ -14,13 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.bumptech.glide.Glide;
-
 import java.io.File;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 
+import gun0912.tedbottompicker.GlideApp;
 import gun0912.tedbottompicker.R;
 import gun0912.tedbottompicker.TedBottomPicker;
 import gun0912.tedbottompicker.view.TedSquareFrameLayout;
@@ -159,7 +158,7 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
         } else {
             Uri uri = pickerTile.getImageUri();
             if (builder.imageProvider == null) {
-                Glide.with(context)
+                GlideApp.with(context)
                         .load(uri)
                         .thumbnail(0.1f)
                         .dontAnimate()

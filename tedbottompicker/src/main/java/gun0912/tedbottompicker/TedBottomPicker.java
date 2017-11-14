@@ -343,7 +343,7 @@ public class TedBottomPicker extends BottomSheetDialogFragment {
         thumbnail.setLayoutParams(new FrameLayout.LayoutParams(px, px));
 
         if (builder.imageProvider == null) {
-            Glide.with(getActivity())
+            GlideApp.with(getActivity())
                     .load(uri)
                     .thumbnail(0.1f)
                     .dontAnimate()
