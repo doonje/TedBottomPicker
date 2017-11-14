@@ -13,13 +13,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
 
 import java.io.File;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
 
-import gun0912.tedbottompicker.GlideApp;
 import gun0912.tedbottompicker.R;
 import gun0912.tedbottompicker.TedBottomPicker;
 import gun0912.tedbottompicker.view.TedSquareFrameLayout;
@@ -149,22 +151,25 @@ public class GalleryAdapter extends RecyclerView.Adapter<GalleryAdapter.GalleryV
         boolean isSelected = false;
 
         if (pickerTile.isCameraTile()) {
+            holder.iv_thumbnail.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             holder.iv_thumbnail.setBackgroundResource(builder.cameraTileBackgroundResId);
             holder.iv_thumbnail.setImageDrawable(builder.cameraTileDrawable);
         } else if (pickerTile.isGalleryTile()) {
+            holder.iv_thumbnail.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             holder.iv_thumbnail.setBackgroundResource(builder.galleryTileBackgroundResId);
             holder.iv_thumbnail.setImageDrawable(builder.galleryTileDrawable);
 
         } else {
             Uri uri = pickerTile.getImageUri();
             if (builder.imageProvider == null) {
-                GlideApp.with(context)
+                holder.iv_thumbnail.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                Glide.with(context)
                         .load(uri)
                         .thumbnail(0.1f)
-                        .dontAnimate()
-                        .centerCrop()
-                        .placeholder(R.drawable.ic_gallery)
-                        .error(R.drawable.img_error)
+//                        .dontAnimate()
+//                        .centerCrop()
+//                        .placeholder(R.drawable.ic_gallery)
+//                        .error(R.drawable.img_error)
                         .into(holder.iv_thumbnail);
             } else {
                 builder.imageProvider.onProvideImage(holder.iv_thumbnail, uri);

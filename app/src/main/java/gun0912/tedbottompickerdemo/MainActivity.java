@@ -20,9 +20,6 @@ import com.gun0912.tedpermission.TedPermission;
 
 import java.util.ArrayList;
 
-import gun0912.tedbottompicker.GlideApp;
-import gun0912.tedbottompicker.GlideRequest;
-import gun0912.tedbottompicker.GlideRequests;
 import gun0912.tedbottompicker.TedBottomPicker;
 
 public class MainActivity extends AppCompatActivity {
